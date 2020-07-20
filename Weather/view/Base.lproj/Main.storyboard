@@ -70,8 +70,8 @@
                                     <constraint firstAttribute="height" constant="40" id="dcJ-we-RXi"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.drizzle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PDP-nu-qzJ">
-                                <rect key="frame" x="264" y="114" width="140" height="141.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PDP-nu-qzJ">
+                                <rect key="frame" x="264" y="116.5" width="140" height="135.5"/>
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="2pk-ms-fAJ"/>
@@ -117,6 +117,7 @@
                     <connections>
                         <outlet property="city" destination="JnI-ra-PGQ" id="cDf-ZC-oKu"/>
                         <outlet property="cityname" destination="hHh-y3-kKl" id="0gI-af-xpl"/>
+                        <outlet property="get_weather" destination="PDP-nu-qzJ" id="Abb-CX-wfL"/>
                         <outlet property="temp" destination="MKm-2g-yDQ" id="8PO-sK-sXY"/>
                     </connections>
                 </viewController>
@@ -127,9 +128,9 @@
     </scenes>
     <resources>
         <image name="bolt.horizontal.icloud.fill" catalog="system" width="128" height="88"/>
-        <image name="cloud.drizzle" catalog="system" width="128" height="125"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="weather_background" width="168.66667175292969" height="325.33334350585938"/>
     </resources>
 </document>

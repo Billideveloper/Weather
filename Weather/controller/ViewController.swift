@@ -110,18 +110,31 @@ extension ViewController: WeathermanagerDelegate{
     
     func didupdateweather(_ weathermanager: Weather_manager ,weather: Weather_Model) {
         
+       
+//        if let imageis = UIImage(systemName: image){
+//
+//            DispatchQueue.main.async {
+//
+//                self.get_weather.image = imageis
+//            }
+//        }
         
+     
         
         DispatchQueue.main.async {
             
             self.city.text = weather.cityName
             
             self.temp.text = "\(weather.tempstring)°C"
-        
-          
-            //self.get_weather.image = UIImage(systemName: weather.conditionname)
             
+            self.get_weather.image = UIImage(systemName: weather.conditionname)
+        
+    
         }
+        
+       
+        
+        
        
       }
     
