@@ -20,7 +20,9 @@ struct Weather_Model {
     
     var tempstring: String{
         
-        return String(format: "%.1f", temp)
+        let tempinc = temp - 273.15
+        
+        return String(format: "%.1f", tempinc)
     }
     
     var conditionname:String{

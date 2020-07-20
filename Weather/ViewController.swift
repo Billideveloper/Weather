@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate{
+class ViewController: UIViewController,UITextFieldDelegate,WeathermanagerDelegate{
 
-    
     
     @IBOutlet weak var cityname: UITextField!
     
@@ -21,6 +20,8 @@ class ViewController: UIViewController,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        manager.delegate = self
         
         cityname.delegate = self
         // Do any additional setup after loading the view.
@@ -55,11 +56,30 @@ class ViewController: UIViewController,UITextFieldDelegate{
             manager.fetchweather(cityname: city)
         }
         
-        
-        
+    
         cityname.text = ""
     }
     
 
+    func didupdateweather(_ weathermanager: Weather_manager ,weather: Weather_Model) {
+        
+        
+        DispatchQueue.main.async {
+            
+            self.city.text = weather.cityName
+            
+            self.temp.text = "\(weather.tempstring)°C"
+            
+            self.get_weather.image = UIImage(systemName: weather.conditionname)
+            
+        }
+       
+      }
+    
+    
+    
+    func didfailwitherror(error: Error) {
+           print("error")
+       }
 }
 

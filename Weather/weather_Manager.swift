@@ -8,8 +8,16 @@
 
 import Foundation
 
+
+protocol WeathermanagerDelegate {
+    func didupdateweather(_ weathermanager: Weather_manager ,weather: Weather_Model)
+    
+    func didfailwitherror(error:Error)
+}
+
 struct Weather_manager {
     
+    var delegate: WeathermanagerDelegate?
     
     let url = "api.openweathermap.org/data/2.5/weather?q={city name}&appid=509ee3a0bd89402c21dd5dc525a8ac01"
     
@@ -51,7 +59,7 @@ struct Weather_manager {
         
         if error != nil{
             
-            print(error?.localizedDescription as Any)
+            self.delegate?.didfailwitherror(error: error!)
             return
         }
         
@@ -59,7 +67,13 @@ struct Weather_manager {
             
            // let stringdata = String(data: mydata, encoding: .utf8)
             
-            parsedata(weatherdata: mydata)
+            if  let weather =   self.parsedata(weatherdata: mydata){
+                
+                
+                
+                self.delegate?.didupdateweather(self, weather:weather)
+                
+            }
           
             
         }
@@ -68,7 +82,7 @@ struct Weather_manager {
     
     
     
-    func parsedata(weatherdata:Data){
+    func parsedata(weatherdata:Data) -> Weather_Model?{
         
         let decoder = JSONDecoder()
         do{
@@ -85,15 +99,14 @@ struct Weather_manager {
             let weather = Weather_Model(conditionId: id, cityName: name, temp: temp)
             
             //getconditionname(weatherId: id)
-            
-            print(weather.tempstring)
-            
-            print(weather.conditionname)
-            
-            
+            return weather
+         
         }catch{
             
-            print(error)
+            self.delegate?.didfailwitherror(error: error)
+            
+            return nil
+            
         }
         
     }
