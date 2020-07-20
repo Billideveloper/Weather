@@ -125,7 +125,7 @@ extension ViewController: WeathermanagerDelegate{
             
             self.city.text = weather.cityName
             
-            self.temp.text = "\(weather.tempstring)°C"
+            self.temp.text = "It's \(weather.tempstring)°C"
             
             self.get_weather.image = UIImage(systemName: weather.conditionname)
         

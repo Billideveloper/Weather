@@ -83,7 +83,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="VGp-cc-8Rv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="75"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
