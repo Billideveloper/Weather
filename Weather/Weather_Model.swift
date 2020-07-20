@@ -25,7 +25,7 @@ struct Weather_Model {
         return String(format: "%.1f", tempinc)
     }
     
-    var conditionname:String{
+    var conditionname: String{
         
         switch conditionId {
                   

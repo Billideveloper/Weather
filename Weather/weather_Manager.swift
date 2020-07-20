@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 
 protocol WeathermanagerDelegate {
@@ -20,6 +21,18 @@ struct Weather_manager {
     var delegate: WeathermanagerDelegate?
     
     let url = "api.openweathermap.org/data/2.5/weather?q={city name}&appid=509ee3a0bd89402c21dd5dc525a8ac01"
+    
+    let urlgeo = "api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}"
+    
+    
+    func fetchweatherr(lat: CLLocationDegrees, lon: CLLocationDegrees){
+        
+        let urlcor = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=509ee3a0bd89402c21dd5dc525a8ac01"
+        
+        getweather(myurl: urlcor)
+    }
+    
+    
     
     func fetchweather(cityname:String){
         
